@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: postcode
+  flyway:
+    enabled: false
+  profiles:
+    active: local
+
+server:
+  port: 4445
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  #        include: info, health, metrics, shutdown
+  health:
+    elasticsearch:
+      enabled: false
+  security:
+    enabled: false
+
+
+
+h2-service:
+  database:
+    port: 9001
+    enabled: true
+  httpConnection:
+    timeout: 10
+    requestTimeout: 10
+    socketTimeout: 10
+
+---
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:h2:file:~/pc-db;AUTO_SERVER=true
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    properties:
+      hibernate:
+        show_sql: false
+        dialect: org.hibernate.dialect.H2Dialect
+        id:
+          new_generator_mappings: true
+        current_session_context_class: thread
+        temp:
+          use_jdbc_metadata_defaults: false
+    hibernate:
+      ddl-auto: create

@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:regularDb;DB_CLOSE_DELAY=1000
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    properties:
+      hibernate:
+        show_sql: false
+        dialect: org.hibernate.dialect.H2Dialect
+        id:
+          new_generator_mappings: true
+        current_session_context_class: thread
+        temp:
+          use_jdbc_metadata_defaults: false
+    hibernate:
+      ddl-auto: none
+  main:
+    web-application-type: none
+
+service:
+  database:
+    port: 9001
+    enabled: true
