@@ -20,6 +20,8 @@ management:
 
 ---
 spring:
+  application:
+    name: postcodes
   profiles: local
   datasource:
     url: jdbc:h2:file:~/pc-db;AUTO_SERVER=true
@@ -38,3 +40,6 @@ spring:
           use_jdbc_metadata_defaults: false
     hibernate:
       ddl-auto: create
+
+server:
+  port: 5000
