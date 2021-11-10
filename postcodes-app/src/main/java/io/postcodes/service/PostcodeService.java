@@ -121,7 +121,7 @@ public class PostcodeService {
         validations.addAll(validateRange(postcodeFrom, postcodeTo));
         if (validations.isEmpty()) {
             final List<Suburb> byCodeCode = suburbRepository.findByPostCode_CodeIsBetween(postcodeFrom, postcodeTo);
-            final List<String> names = byCodeCode.stream().map(Suburb::getName).collect(Collectors.toList());
+            final List<String> names = byCodeCode.stream().map(Suburb::getName).sorted().collect(Collectors.toList());
             response.getSuburbs().addAll(names);
             final long count = names.stream().map(String::length).mapToInt(value -> value).sum();
             response.setCharacterCount(count);

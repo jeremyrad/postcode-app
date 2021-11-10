@@ -55,7 +55,7 @@ public class PostcodeServiceController {
         if (postCodeDto != null) {
             return ResponseEntity.ok(postCodeDto);
         }
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping(path = "/{postcode}")
