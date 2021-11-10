@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: postcodes
+
+server:
+  port: 5000
