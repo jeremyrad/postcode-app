@@ -1,0 +1,48 @@
+{
+  "postCodes": [
+    {
+      "postCode": "1111",
+      "suburbs": [
+        "venus",
+        "mercury",
+        "mars",
+        "saturn"
+      ]
+    },
+    {
+      "postCode": "1235",
+      "suburbs": [
+        "sun",
+        "moon"
+      ]
+    },
+    {
+      "postCode": "0000",
+      "suburbs": [
+        "jeremy",
+        "moon"
+      ]
+    },
+    {
+      "postCode": "9999",
+      "suburbs": [
+        "blah",
+        "lahah"
+      ]
+    },
+    {
+      "postCode": "10000",
+      "suburbs": [
+        "too",
+        "long"
+      ]
+    },
+    {
+      "postCode": "999",
+      "suburbs": [
+        "less than",
+        "four"
+      ]
+    }
+  ]
+}
