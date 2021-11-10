@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchRestClientAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-
 @SpringBootApplication(exclude = ElasticsearchRestClientAutoConfiguration.class, scanBasePackages = {"io.postcodes"})
 @EnableConfigurationProperties({ServiceProperties.class})
 public class PostcodesApplication {

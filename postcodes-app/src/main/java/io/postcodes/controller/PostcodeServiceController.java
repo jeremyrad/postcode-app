@@ -39,7 +39,7 @@ public class PostcodeServiceController {
         return ResponseEntity.ok(suburbsByPostCode);
     }
 
-    @PostMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ApiOperation(value = "Update postcode details")
     public ResponseEntity<UpdatePostCodeResponse> updatePostCode(@RequestBody final UpdatePostCode updatePostCode) {
