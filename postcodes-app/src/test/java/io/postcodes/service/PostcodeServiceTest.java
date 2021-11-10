@@ -4,10 +4,10 @@ import io.postcodes.api.FindSuburbResponse;
 import io.postcodes.api.PostCodeDto;
 import io.postcodes.api.UpdatePostCode;
 import io.postcodes.api.UpdatePostCodeResponse;
-import io.postcodes.db.model.PostCode;
 import io.postcodes.db.PostCodeRepository;
-import io.postcodes.db.model.Suburb;
 import io.postcodes.db.SuburbRepository;
+import io.postcodes.db.model.PostCode;
+import io.postcodes.db.model.Suburb;
 import io.postcodes.matcher.IsIterableOfSize;
 import io.postcodes.util.PostCodeDtoBuilder;
 import org.junit.Before;
@@ -27,6 +27,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.argThat;
@@ -249,9 +250,44 @@ public class PostcodeServiceTest {
 
     }
 
-    private Suburb buildSuburb(final long id, final String sun, final PostCode postCode) {
+    @Test
+    public void testFindPostCode_WhenFound_shouldReturnPostCodeAndSuburbs() {
+
+        final Integer postCode = 1234;
+        final PostCode postCodeDb = new PostCode();
+        postCodeDb.setCode(postCode);
+
+        when(postCodeRepository.findById(postCode)).thenReturn(Optional.of(postCodeDb));
+        final List<Suburb> suburbByPostCodeCode = new ArrayList<>();
+        suburbByPostCodeCode.add(buildSuburb(1L, "sub1", postCodeDb));
+        when(suburbRepository.findSuburbByPostCodeCode(postCode)).thenReturn(suburbByPostCodeCode);
+
+        final PostCodeDto postCodeDto = postcodeService.findPostCode(postCode);
+
+        assertNotNull(postCodeDto);
+        assertEquals(postCode, postCodeDto.getPostCode());
+        assertEquals(1, postCodeDto.getSuburbs().size());
+        assertEquals("sub1", postCodeDto.getSuburbs().iterator().next());
+
+    }
+
+    @Test
+    public void testFindPostCode_NotFound_shouldReturnNull() {
+
+        final Integer postCode = 1234;
+        final PostCode postCodeDb = new PostCode();
+        postCodeDb.setCode(postCode);
+
+        when(postCodeRepository.findById(postCode)).thenReturn(Optional.empty());
+
+        final PostCodeDto postCodeDto = postcodeService.findPostCode(postCode);
+
+        assertNull(postCodeDto);
+    }
+
+    private Suburb buildSuburb(final long id, final String suburbName, final PostCode postCode) {
         final Suburb suburb = new Suburb();
-        suburb.setName(sun);
+        suburb.setName(suburbName);
         suburb.setId(id);
         suburb.setPostCode(postCode);
         return suburb;

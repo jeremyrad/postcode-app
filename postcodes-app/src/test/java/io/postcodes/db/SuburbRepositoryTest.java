@@ -1,6 +1,6 @@
 package io.postcodes.db;
 
-import io.postcodes.PostcodesServerApplication;
+import io.postcodes.PostcodesApplication;
 import io.postcodes.db.model.PostCode;
 import io.postcodes.db.model.Suburb;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest(showSql = true)
-@ContextConfiguration(classes = {PostcodesServerApplication.class, PostCodeRepository.class})
+@ContextConfiguration(classes = {PostcodesApplication.class, PostCodeRepository.class})
 @EnableJpaRepositories(basePackages = {"io.postcodes.*"})
 @EntityScan("io.postcodes.db")
 class SuburbRepositoryTest {

@@ -13,4 +13,5 @@ public interface SuburbRepository extends CrudRepository<Suburb, Long> {
 
     List<Suburb> findSuburbByPostCodeCode(final Integer postcode);
 
+    Suburb findSuburbByPostCodeCodeAndName(final Integer postcode, final String name);
 }

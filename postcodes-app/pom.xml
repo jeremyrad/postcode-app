@@ -13,7 +13,7 @@
     <artifactId>postcodes-app</artifactId>
 
     <properties>
-        <code.coverage.line.ratio>0.98</code.coverage.line.ratio>
+        <code.coverage.line.ratio>0.92</code.coverage.line.ratio>
         <test_console_log_level>INFO</test_console_log_level>
     </properties>
 
@@ -119,7 +119,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>io.postcodes.PostcodesServerApplication</mainClass>
+                    <mainClass>io.postcodes.PostcodesApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>

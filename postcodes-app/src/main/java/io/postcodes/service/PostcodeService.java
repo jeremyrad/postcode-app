@@ -1,6 +1,7 @@
 package io.postcodes.service;
 
 import io.postcodes.api.FindSuburbResponse;
+import io.postcodes.api.PostCodeDto;
 import io.postcodes.api.PostCodeResponseDto;
 import io.postcodes.api.UpdatePostCode;
 import io.postcodes.api.UpdatePostCodeResponse;
@@ -12,12 +13,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Transactional
 @RequiredArgsConstructor
 @Service
 public class PostcodeService {
@@ -127,4 +130,25 @@ public class PostcodeService {
         return response;
     }
 
+    public void deletePostCode(final Integer postcode) {
+        postCodeRepository.findById(postcode).ifPresent(postCode -> postCodeRepository.delete(postCode));
+    }
+
+    public PostCodeDto deletePostCodeSuburb(final Integer postcode, final String suburb) {
+        final Suburb suburbByPostCodeCode = suburbRepository.findSuburbByPostCodeCodeAndName(postcode, suburb);
+        suburbRepository.delete(suburbByPostCodeCode);
+        return findPostCode(postcode);
+    }
+
+    public PostCodeDto findPostCode(final Integer postcode) {
+        final Optional<PostCode> byId = postCodeRepository.findById(postcode);
+        if (byId.isPresent()) {
+            final PostCodeDto postCodeDto = new PostCodeDto();
+            postCodeDto.setPostCode(postcode);
+            final List<Suburb> suburbByPostCodeCode = suburbRepository.findSuburbByPostCodeCode(postcode);
+            postCodeDto.setSuburbs(suburbByPostCodeCode.stream().map(Suburb::getName).collect(Collectors.toList()));
+            return postCodeDto;
+        }
+        return null;
+    }
 }

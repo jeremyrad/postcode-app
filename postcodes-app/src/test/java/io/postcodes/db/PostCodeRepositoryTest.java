@@ -1,7 +1,7 @@
 package io.postcodes.db;
 
 
-import io.postcodes.PostcodesServerApplication;
+import io.postcodes.PostcodesApplication;
 import io.postcodes.db.model.PostCode;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +20,7 @@ import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest(showSql = true)
-@ContextConfiguration(classes = {PostcodesServerApplication.class, PostCodeRepository.class})
+@ContextConfiguration(classes = {PostcodesApplication.class, PostCodeRepository.class})
 @EnableJpaRepositories(basePackages = {"io.postcodes.*"})
 @EntityScan("io.postcodes.db")
 public class PostCodeRepositoryTest {
