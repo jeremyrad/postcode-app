@@ -1,4 +1,4 @@
-package io.postcodes.db;
+package io.postcodes.db.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name= "SUBURB")

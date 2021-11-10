@@ -1,4 +1,4 @@
-package io.postcodes.service;
+package io.postcodes.api;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

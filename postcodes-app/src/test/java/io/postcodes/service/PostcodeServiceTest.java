@@ -1,8 +1,12 @@
 package io.postcodes.service;
 
-import io.postcodes.db.PostCode;
+import io.postcodes.api.FindSuburbResponse;
+import io.postcodes.api.PostCodeDto;
+import io.postcodes.api.UpdatePostCode;
+import io.postcodes.api.UpdatePostCodeResponse;
+import io.postcodes.db.model.PostCode;
 import io.postcodes.db.PostCodeRepository;
-import io.postcodes.db.Suburb;
+import io.postcodes.db.model.Suburb;
 import io.postcodes.db.SuburbRepository;
 import io.postcodes.matcher.IsIterableOfSize;
 import io.postcodes.util.PostCodeDtoBuilder;
@@ -169,7 +173,7 @@ public class PostcodeServiceTest {
         assertNotNull(response.getPostCodes());
         assertEquals(1, response.getPostCodes().size());
         assertEquals(1, response.getPostCodes().iterator().next().getValidations().size());
-        assertTrue(response.getPostCodes().iterator().next().getValidations().iterator().next().startsWith("The post code length of"));
+        assertTrue(response.getPostCodes().iterator().next().getValidations().iterator().next().startsWith("The post code"));
     }
 
     @Test
@@ -185,7 +189,7 @@ public class PostcodeServiceTest {
         assertNotNull(response.getPostCodes());
         assertEquals(1, response.getPostCodes().size());
         assertEquals(1, response.getPostCodes().iterator().next().getValidations().size());
-        assertTrue(response.getPostCodes().iterator().next().getValidations().iterator().next().startsWith("The post code length of"));
+        assertTrue(response.getPostCodes().iterator().next().getValidations().iterator().next().startsWith("The post code"));
     }
 
     @Test

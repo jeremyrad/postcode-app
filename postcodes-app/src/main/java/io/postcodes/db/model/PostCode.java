@@ -1,4 +1,4 @@
-package io.postcodes.db;
+package io.postcodes.db.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

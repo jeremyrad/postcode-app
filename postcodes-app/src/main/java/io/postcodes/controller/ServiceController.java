@@ -1,9 +1,9 @@
 package io.postcodes.controller;
 
-import io.postcodes.service.UpdatePostCode;
-import io.postcodes.service.FindSuburbResponse;
+import io.postcodes.api.UpdatePostCode;
+import io.postcodes.api.FindSuburbResponse;
 import io.postcodes.service.PostcodeService;
-import io.postcodes.service.UpdatePostCodeResponse;
+import io.postcodes.api.UpdatePostCodeResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

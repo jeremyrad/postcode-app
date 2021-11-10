@@ -1,6 +1,7 @@
-package io.postcodes.service;
+package io.postcodes.api;
 
 
+import io.postcodes.api.PostCodeResponseDto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

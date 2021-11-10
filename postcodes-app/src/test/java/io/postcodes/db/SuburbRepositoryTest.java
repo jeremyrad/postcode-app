@@ -1,6 +1,8 @@
 package io.postcodes.db;
 
 import io.postcodes.PostcodesServerApplication;
+import io.postcodes.db.model.PostCode;
+import io.postcodes.db.model.Suburb;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

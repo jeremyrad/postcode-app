@@ -1,6 +1,6 @@
 package io.postcodes.util;
 
-import io.postcodes.service.PostCodeDto;
+import io.postcodes.api.PostCodeDto;
 
 import java.util.ArrayList;
 import java.util.List;

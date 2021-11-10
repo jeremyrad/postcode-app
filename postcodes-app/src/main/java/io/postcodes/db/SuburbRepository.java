@@ -1,5 +1,6 @@
 package io.postcodes.db;
 
+import io.postcodes.db.model.Suburb;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

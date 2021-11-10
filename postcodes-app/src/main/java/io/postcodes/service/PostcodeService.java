@@ -1,8 +1,12 @@
 package io.postcodes.service;
 
-import io.postcodes.db.PostCode;
+import io.postcodes.api.FindSuburbResponse;
+import io.postcodes.api.PostCodeResponseDto;
+import io.postcodes.api.UpdatePostCode;
+import io.postcodes.api.UpdatePostCodeResponse;
+import io.postcodes.db.model.PostCode;
 import io.postcodes.db.PostCodeRepository;
-import io.postcodes.db.Suburb;
+import io.postcodes.db.model.Suburb;
 import io.postcodes.db.SuburbRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
