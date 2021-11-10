@@ -17,3 +17,6 @@ Constraints
 Postcodes are 4 digit codes range from 0000 to 9999.
 Suburbs are Strings that can have a maximum length of 50 characters.
  
+Working version of the app on AWS
+
+http://postcodes-env.eba-mhyrqhin.af-south-1.elasticbeanstalk.com
